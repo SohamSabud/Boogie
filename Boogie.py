@@ -36,19 +36,22 @@ if __name__=='__main__':
                 say(f"Opening {site[0]} sir...")
                 webbrowser.open(site[1])
         if "open music" in query:
-            import pygame
-
-            def play_music(file_path):
-                pygame.mixer.init()
-                pygame.mixer.music.load(file_path)
-                pygame.mixer.music.play()
-                while True:
-                    command = input("Press 'q' to stop the song: ")
-                    if command.lower() == 'q':
-                        pygame.mixer.music.stop()
-                        break
-            
-            play_music("Safar Notebook 128 Kbps.mp3")
+            say("Which Song?")
+            q= takeCommand()
+            if "Safar" in q:
+                import pygame
+        
+                def play_music(file_path):
+                        pygame.mixer.init()
+                        pygame.mixer.music.load(file_path)
+                        pygame.mixer.music.play()
+                        while True:
+                            command = input("Press 'q' to stop the song: ")
+                            if command.lower() == 'q':
+                                pygame.mixer.music.stop()
+                                break
+                    
+                play_music("Safar Notebook 128 Kbps.mp3")
             
         elif "the time" in query:      
             strfTime= datetime.datetime.now().strftime("%H:%M:%S")                         
